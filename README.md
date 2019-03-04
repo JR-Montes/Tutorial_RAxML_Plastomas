@@ -46,7 +46,7 @@ Ejemplo:
 
 ```
 perl ../applyRAxML2AllFilesInDirectory.pl ./ "/usr/local/bin/raxmlHPC-PTHREADS -f d -m GTRGAMMA -s Cembroides_Plastome_t63.phy -q Particion_genes.txt -# 500 -n Heuristica -T 22 -p 12345"
-` 
+``` 
  
 
 Uno de los archivos de salida será:
