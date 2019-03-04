@@ -24,6 +24,15 @@ El comando `-T 2` hace referencia al número de núcleos del procesador que se v
 |**ii.** Archivo de particiones molecular  | (particion_adn.txt)|
 |**iii.** Matriz mixta       | (total.phy)   |
 |**iv.** Archivo de particiones mixto |(morfo_sec.txt) |
+
+
+**ii**. Archivo de particiones
+
+```
+DNA, cod = 
+DNA, nocod2 = 
+```
+
 ___
 
 **1.** Búsqueda del mejor árbol de verosimilitud y cálculo de los valores de soporte, con particiones moleculares. Este análisis se realiza en tres partes, dos implican algo de tiempo y la tercera es solo para resumir los resultados. Para correr el análsis se utilizara un archivo en PHYLIP con 63 taxa y 117,333 sitos del genoma de cloroplasto:
