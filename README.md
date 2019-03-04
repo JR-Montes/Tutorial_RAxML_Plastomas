@@ -35,7 +35,9 @@ ___
 
 El programa de `raxmlHPC-PTHREADS` debe o tiene que estar instalado en la carpeta `bin`dentro de la carpeta `local`en la ruta del usuario `usr` para poder correr el análisis desde cualquier lugar del servidor. `raxmlHPC-PTHREADS` corre con lenguaje de programación `perl`. En este sentido la ruta para llamar a `raxmlHPC-PTHREADS` sería la siguiente:
 
-`lenguaje ../executable ./ "path[...] -f d -m [modelo] -s [archivo de entrada.phy] -q [archivo de particiones.txt] -# [número de búsquedas] -n [archivo de salida.phy] -T [número de procesadores] -p [número de raíz]"`
+```
+lenguaje ../executable ./ "path[...] -f d -m [modelo] -s [archivo de entrada.phy] -q [archivo de particiones.txt] -# [número de búsquedas] -n [archivo de salida.phy] -T [número de procesadores] -p [número de raíz]"
+```
 
 **NOTA**: Es muy importante que escribas las comillas para poder correr el análisis
 
@@ -56,7 +58,9 @@ Este es el mejor árbol de las 500 replicas, puedes verlo en FigTree o Dendrosco
 
 **b)** Análisis de bootstrap con 1000 replicas.
 
-`perl ../applyRAxML2AllFilesInDirectory.pl ./ "/usr/local/bin/raxmlHPC-PTHREADS -f d -m GTRGAMMA -s Cembroides_Plastome_t63.phy -q Particion_genes.txt -# 1000 -b 12345 -n bootstrap -T 2 -p 12345`
+```
+perl ../applyRAxML2AllFilesInDirectory.pl ./ "/usr/local/bin/raxmlHPC-PTHREADS -f d -m GTRGAMMA -s Cembroides_Plastome_t63.phy -q Particion_genes.txt -# 1000 -b 12345 -n bootstrap -T 2 -p 12345
+```
 
 **NOTA**: En algunos casos `RAxML` impre un error en la pantalla que indica que el archivo.phy debe ser convertido a `FASTA` para poder seguir con el análisis. Si esto sucede transforma el `archivo.phy` a un `archivo.fasta`
 
@@ -67,7 +71,9 @@ Estos árboles puedes conservarlos y en caso de ser necesario juntarlos con otro
 
 **c)** Resumen final, anotar el árbol con los valores de soporte.
 
-``perl ../applyRAxML2AllFilesInDirectory.pl ./ "/usr/local/bin/raxmlHPC-PTHREADS -f b -m GTRGAMMA -s Cembroides_Plastome_t63.fasta -q Particion_genes.txt -z RAxML_bootstrap.*.fasta -t RAxML_bestTree.*.phy -n BS_TREE -T 22`
+```
+perl ../applyRAxML2AllFilesInDirectory.pl ./ "/usr/local/bin/raxmlHPC-PTHREADS -f b -m GTRGAMMA -s Cembroides_Plastome_t63.fasta -q Particion_genes.txt -z RAxML_bootstrap.*.fasta -t RAxML_bestTree.*.phy -n BS_TREE -T 22
+```
 
 Se genera un árbol llamado:
 `RaxML_bipartitions.Analysis.RAxML_info.Analysis.RAxML_bootstrap*. fasta`
@@ -81,7 +87,9 @@ ___
 
 ___
 
-`raxmlHPC-pthreads-sse3 -f d -m ASC_MULTICAT --asc-corr=lewis -K MK -s total.phy -q morfo_sec.txt -# 500 -n combinado -T 2 -p 12345`
+```
+raxmlHPC-pthreads-sse3 -f d -m ASC_MULTICAT --asc-corr=lewis -K MK -s total.phy -q morfo_sec.txt -# 500 -n combinado -T 2 -p 12345
+```
 
 Este comando declara dos particiones una para morfología que por omisión será analizada con `GTR` y otra de morfología que será analizada con el Mkv, calculando verosimilitud condicional a NO tener datos invariantes y considerando CAT para la heterogeneidad de tasas (ASC_MULTICAT). La corrección se hará con el método de Lewis (2001) `(--asc-corr=lewis)` y para la matriz de transición de caracteres multiestado se usara la matriz tipo MK `(-K MK)`. Es importante señalar que en el caso de analizar caracteres binarios el comando `-K` ya no es necesario.
 
