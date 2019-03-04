@@ -30,7 +30,7 @@ El comando `-T 2` hace referencia al número de núcleos del procesador que se v
 
 ```
 DNA, cod = 
-DNA, nocod2 = 
+DNA, nocod = 
 ```
 
 ___
