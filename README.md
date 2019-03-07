@@ -6,6 +6,7 @@ Este es un tutorial para correr un análisis de máxima verosimilitud con genoma
  
 ____
 
+by José Rubén Montes
 
 
 En RaxML se pueden implementar una gran cantidad de análisis, además de buscar árboles y calcular los valores de soporte, este programa puede hacer consensos convencionales o específicos para identificar taxones tramposos (rogue taxa) o aplica una prueba de Shimodaira-Hasegawa entre otras cosas.
