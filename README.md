@@ -1,12 +1,11 @@
-# Tutorial_RAxML_Plastomas
+## Tutoria de Maxima Verosimilitud con Plastomas en RAxML ver. 8
+
 Este es un tutorial para correr un análisis de máxima verosimilitud con genomas completos de cloropasto de pinos
-
-
-## Tutorial RAxML máxima verosimilitud en RaxML ver. 8
  
-____
 
 by José Rubén Montes
+
+___
 
 
 En RaxML se pueden implementar una gran cantidad de análisis, además de buscar árboles y calcular los valores de soporte, este programa puede hacer consensos convencionales o específicos para identificar taxones tramposos (rogue taxa) o aplica una prueba de Shimodaira-Hasegawa entre otras cosas.
