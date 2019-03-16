@@ -68,7 +68,7 @@ Este es el mejor árbol de las 500 replicas, puedes verlo en FigTree o Dendrosco
 **b)** Análisis de bootstrap con 1000 replicas.
 
 ```
-perl ../applyRAxML2AllFilesInDirectory.pl ./ "/usr/local/bin/raxmlHPC-PTHREADS -f d -m GTRGAMMA -s Cembroides_Plastome_t63.phy -q Particion_genes.txt -# 1000 -b 12345 -n bootstrap -T 2 -p 12345
+perl ../applyRAxML2AllFilesInDirectory.pl ./ "/usr/local/bin/raxmlHPC-PTHREADS -f d -m GTRGAMMA -s Cembroides_Plastome_t63.phy -q Particion_genes.txt -# 1000 -b 12345 -n bootstrap -T 2 -p 12345"
 ```
 
 **NOTA**: En algunos casos `RAxML` impre un error en la pantalla que indica que el archivo.phy debe ser convertido a `FASTA` para poder seguir con el análisis. Si esto sucede transforma el `archivo.phy` a un `archivo.fasta`
@@ -81,7 +81,7 @@ Estos árboles puedes conservarlos y en caso de ser necesario juntarlos con otro
 **c)** Resumen final, anotar el árbol con los valores de soporte.
 
 ```
-perl ../applyRAxML2AllFilesInDirectory.pl ./ "/usr/local/bin/raxmlHPC-PTHREADS -f b -m GTRGAMMA -s Cembroides_Plastome_t63.fasta -q Particion_genes.txt -z RAxML_bootstrap.*.fasta -t RAxML_bestTree.*.phy -n BS_TREE -T 22
+perl ../applyRAxML2AllFilesInDirectory.pl ./ "/usr/local/bin/raxmlHPC-PTHREADS -f b -m GTRGAMMA -s Cembroides_Plastome_t63.fasta -q Particion_genes.txt -z RAxML_bootstrap.*.fasta -t RAxML_bestTree.*.phy -n BS_TREE -T 22"
 ```
 
 Se genera un árbol llamado:
