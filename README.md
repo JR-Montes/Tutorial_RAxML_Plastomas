@@ -107,13 +107,13 @@ Este comando declara dos particiones una para secuencias que por omisión será 
 **b)** Análisis de bootstrap con 1000 replicas.
 
 ```
-raxmlHPC-pthreads-sse3 -f d -m ASC_MULTICAT --asc-corr=lewis -K MK -s total.phy -q morfo_sec.txt -# 1000 -b 12345 -n bootstrap -T 2 -p 12345"
+raxmlHPC-pthreads-sse3 -f d -m ASC_MULTICAT --asc-corr=lewis -K MK -s total.phy -q morfo_sec.txt -# 1000 -b 12345 -n bootstrap -T 2 -p 12345
 ```
 
 **c)** Resumen final, anotar el árbol con los valores de soporte.
 
 ```
-raxmlHPC-pthreads-sse3 -f b -m ASC_MULTICAT --asc-corr=lewis -K MK -s total.phy -q morfo_sec.txt -z RAxML_bootstrap.* -t RAxML_bestTree.* -n BS_TREE -T 2"
+raxmlHPC-pthreads-sse3 -f b -m ASC_MULTICAT --asc-corr=lewis -K MK -s total.phy -q morfo_sec.txt -z RAxML_bootstrap.* -t RAxML_bestTree.* -n BS_TREE -T 2
 ```
 
 ___
