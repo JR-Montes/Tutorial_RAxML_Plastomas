@@ -53,17 +53,17 @@ lenguaje ../executable ./ "path[...] -f d -m [modelo] -s [archivo de entrada.phy
 
 Ejemplo:
 
-**a)** Búsqueda heurística del mejor árbol con 500 replicas
+**a)** Búsqueda heurística del mejor árbol con 1000 replicas
 
 ```
-perl ../applyRAxML2AllFilesInDirectory.pl ./ "/usr/local/bin/raxmlHPC-PTHREADS -f d -m GTRGAMMA -s Cembroides_Plastome_t63.phy -q Particion_genes.txt -# 500 -n Heuristica -T 22 -p 12345"
+perl ../applyRAxML2AllFilesInDirectory.pl ./ "/usr/local/bin/raxmlHPC-PTHREADS -f d -m GTRGAMMA -s Cembroides_Plastome_t63.phy -q Particion_genes.txt -# 1000 -n Heuristica -T 22 -p 12345"
 ``` 
  
 
 Uno de los archivos de salida será:
 `RaxML_bestTree.Analysis.Cembroides_Plastome_63t.phy`
 
-Este es el mejor árbol de las 500 replicas, puedes verlo en FigTree o Dendroscope. En ese árbol vas a apuntar los resultados del bootstrap, debes verificar que el árbol está en formato NEWIK
+Este es el mejor árbol de las 1000 replicas, puedes verlo en FigTree o Dendroscope. En ese árbol vas a apuntar los resultados del bootstrap, debes verificar que el árbol está en formato NEWICK
 
 **b)** Análisis de bootstrap con 1000 replicas.
 
@@ -75,7 +75,7 @@ perl ../applyRAxML2AllFilesInDirectory.pl ./ "/usr/local/bin/raxmlHPC-PTHREADS -
 
 Los árboles de bootsrap (1000 árboles) se guardan en el archivo: `RaxML_bootstrap.Analysis.Cembroides_Plastome_63t.fasta`
 
-Estos árboles puedes conservarlos y en caso de ser necesario juntarlos con otro archivo diferente que contenga —digamos— otras 500 replicas y así juntar 1000. Esta forma de hacer el bootstrap te permite adicionar replicas que vayas haciendo en diferentes máquinas y no tener que emplear una sola computadora para hacer miles de replicas.
+Estos árboles puedes conservarlos y en caso de ser necesario juntarlos con otro archivo diferente que contenga —digamos— otras 1000 replicas y así juntar 2000. Esta forma de hacer el bootstrap te permite adicionar replicas que vayas haciendo en diferentes máquinas y no tener que emplear una sola computadora para hacer miles de replicas.
 
 
 **c)** Resumen final, anotar el árbol con los valores de soporte.
@@ -85,14 +85,16 @@ perl ../applyRAxML2AllFilesInDirectory.pl ./ "/usr/local/bin/raxmlHPC-PTHREADS -
 ```
 
 Se genera un árbol llamado:
-`RaxML_bipartitions.Analysis.RAxML_info.Analysis.RAxML_bootstrap*. fasta`
+`RaxML_bipartitions.Analysis.RAxML_info.Analysis.RAxML_bootstrap*.fasta`
 
 Ese árbol lo puedes abrir con FigTree o Dendroscope y ya contiene los valores de soporte anotados sobre el mejor árbol encontrado en la búsqueda heurística  de 1000 replicas.
 
 
 ___
 
-**2.** Búsqueda del mejor árbol de verosimilitud con particiones moleculares y morfológica (binaria y multiestado).
+### 2 Análisis de evidencia total con particiones
+
+**a)** Búsqueda del mejor árbol de verosimilitud con particiones moleculares y morfológica (binaria y multiestado).
 
 ___
 
@@ -100,9 +102,19 @@ ___
 raxmlHPC-pthreads-sse3 -f d -m ASC_MULTICAT --asc-corr=lewis -K MK -s total.phy -q morfo_sec.txt -# 500 -n combinado -T 2 -p 12345
 ```
 
-Este comando declara dos particiones una para morfología que por omisión será analizada con `GTR` y otra de morfología que será analizada con el Mkv, calculando verosimilitud condicional a NO tener datos invariantes y considerando CAT para la heterogeneidad de tasas (ASC_MULTICAT). La corrección se hará con el método de Lewis (2001) `(--asc-corr=lewis)` y para la matriz de transición de caracteres multiestado se usara la matriz tipo MK `(-K MK)`. Es importante señalar que en el caso de analizar caracteres binarios el comando `-K` ya no es necesario.
+Este comando declara dos particiones una para secuencias que por omisión será analizada con `GTR` y otra de morfología que será analizada con el Mkv, calculando verosimilitud condicional a NO tener datos invariantes y considerando CAT para la heterogeneidad de tasas (ASC_MULTICAT). La corrección se hará con el método de Lewis (2001) `(--asc-corr=lewis)` y para la matriz de transición de caracteres multiestado se usara la matriz tipo MK `(-K MK)`. Es importante señalar que en el caso de analizar caracteres binarios el comando `-K` ya no es necesario.
 
-Para los valores de soporte seguir los pasos del análisis anterior.
+**b)** Análisis de bootstrap con 1000 replicas.
+
+```
+raxmlHPC-pthreads-sse3 -f d -m ASC_MULTICAT --asc-corr=lewis -K MK -s total.phy -q morfo_sec.txt -# 1000 -b 12345 -n bootstrap -T 2 -p 12345"
+```
+
+**c)** Resumen final, anotar el árbol con los valores de soporte.
+
+```
+raxmlHPC-pthreads-sse3 -f b -m ASC_MULTICAT --asc-corr=lewis -K MK -s total.phy -q morfo_sec.txt -z RAxML_bootstrap.* -t RAxML_bestTree.* -n BS_TREE -T 2"
+```
 
 ___
 
