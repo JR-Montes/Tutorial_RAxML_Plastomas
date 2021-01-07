@@ -92,14 +92,14 @@ Ese árbol lo puedes abrir con FigTree o Dendroscope y ya contiene los valores d
 
 ___
 
-### 2 Análisis de evidencia total con particiones
+## 2. Análisis de evidencia total con particiones
 
 **a)** Búsqueda del mejor árbol de verosimilitud con particiones moleculares y morfológica (binaria y multiestado).
 
 ___
 
 ```
-raxmlHPC-pthreads-sse3 -f d -m ASC_MULTICAT --asc-corr=lewis -K MK -s total.phy -q morfo_sec.txt -# 500 -n combinado -T 2 -p 12345
+raxmlHPC-pthreads-sse3 -f d -m ASC_MULTICAT --asc-corr=lewis -K MK -s total.phy -q morfo_sec.txt -# 1000 -n combinado -T 2 -p 12345
 ```
 
 Este comando declara dos particiones una para secuencias que por omisión será analizada con `GTR` y otra de morfología que será analizada con el Mkv, calculando verosimilitud condicional a NO tener datos invariantes y considerando CAT para la heterogeneidad de tasas (ASC_MULTICAT). La corrección se hará con el método de Lewis (2001) `(--asc-corr=lewis)` y para la matriz de transición de caracteres multiestado se usara la matriz tipo MK `(-K MK)`. Es importante señalar que en el caso de analizar caracteres binarios el comando `-K` ya no es necesario.
@@ -127,4 +127,4 @@ ___
 El árbol resultante será
 `RaxML_bipartitions.exploratoria`
 
-Ese árbol resultó de un bootstrap de 500 replicas, con algoritmo rápido, al final de cual se hizo una búsqueda heurística con 1 replica. Sobre el árbol encontrado en la replica heurística se anotaron los valores de soporte.
+Ese árbol resultó de un bootstrap de 1000 replicas, con algoritmo rápido, al final de cual se hizo una búsqueda heurística con 1 replica. Sobre el árbol encontrado en la replica heurística se anotaron los valores de soporte.
