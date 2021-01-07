@@ -118,7 +118,7 @@ raxmlHPC-pthreads-sse3 -f b -m ASC_MULTICAT --asc-corr=lewis -K MK -s total.phy 
 
 ___
 
-3. Búsqueda rápida exploratoria con valores de soporte, caracteres moleculares sin particiones.
+## 3. Búsqueda rápida exploratoria con valores de soporte, caracteres moleculares sin particiones.
 
 ___
 
