@@ -126,6 +126,7 @@ ___
 
 ```
 raxmlHPC-SSE3 -f d -m ASC_GTRCAT -V --K80 --asc-corr=felsenstein -n out_  -s snps.phy -# 1000 -n Heuristica -p 12345 -q part
+
 ```
 
 Este análisis de RAxML utiliza un modelo de correcciones para SNPs. De acuerdo con [Leaché et al. 2015](https://academic.oup.com/sysbio/article/64/6/1032/1669226?login=false) el método de verosimilitud condicionada y de ADN reconstituido son las mejores aproximaciones para analizar SNPs. Se utiliza la opción `--asc-corr=stamatakis`o `--asc-corr=felsenstein`. La elección de las correcciones depende del número de sitios invariantes (ver Leaché et al. 2015). 
@@ -135,7 +136,7 @@ Es importante indicar en la línea de comando un modelo de sustitución simple (
 ```
 You should do a model test and confirm that you actually need to incorporate a model of rate heterogeneity!
 You can run inferences with a plain substitution model (without rate heterogeneity) by specifyng the CAT model and the "-V" option!
-``
+```
 
 
 También es importante que aunque no tengas particiones, incluyas un archivo de particiones (`-q part`)porque si no el programa imprime el siguiente error y no corre el análisis:
