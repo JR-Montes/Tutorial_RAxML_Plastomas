@@ -1,4 +1,4 @@
-## Tutoria de Maxima Verosimilitud con Plastomas en RAxML ver. 8
+## Tutoria de Maxima Verosimilitud con Plastomas, Morfología y SNPs en RAxML ver. 8
 
 Este es un tutorial para correr un análisis de máxima verosimilitud con genomas completos de cloropasto de pinos
  
